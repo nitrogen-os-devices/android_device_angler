@@ -376,6 +376,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ril.force_eri_from_xml=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.texture_cache_size=72 \
+    ro.hwui.layer_cache_size=48 \
+    ro.hwui.r_buffer_cache_size=8 \
+    ro.hwui.path_cache_size=32 \
+    ro.hwui.gradient_cache_size=1 \
+    ro.hwui.drop_shadow_cache_size=6 \
+    ro.hwui.texture_cache_flushrate=0.4 \
+    ro.hwui.text_small_cache_width=1024 \
+    ro.hwui.text_small_cache_height=1024 \
+    ro.hwui.text_large_cache_width=2048 \
+    ro.hwui.text_large_cache_height=1024
+
 # Enable low power video mode for 4K encode
 PRODUCT_PROPERTY_OVERRIDES += \
     vidc.debug.perf.mode=2 \
@@ -430,6 +447,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # If data_no_toggle is 1 then dormancy indications will come with screen off.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.data_no_toggle=1
+
+# Allow tethering without provisioning app
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
