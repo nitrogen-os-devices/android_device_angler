@@ -23,6 +23,14 @@ ifeq ($(TARGET_USES_INTERACTION_BOOST),true)
     LOCAL_CFLAGS += -DINTERACTION_BOOST
 endif
 
+LOCAL_CFLAGS += \
+    -Wno-macro-redefined \
+    -Wno-sign-compare \
+    -Wno-sometimes-uninitialized \
+    -Wno-switch \
+    -Wno-unused-parameter \
+    -Wno-unused-variable \
+
 LOCAL_MODULE := power.angler
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
