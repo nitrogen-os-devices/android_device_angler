@@ -16,4 +16,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_angler.mk \
-    $(LOCAL_DIR)/nitrogen_angler.mk
+    $(LOCAL_DIR)/best_angler.mk
