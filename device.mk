@@ -347,7 +347,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf \
+    device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
 
 DEVICE_PACKAGE_OVERLAYS := \
@@ -451,7 +451,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #for qcom modify fluence type name, here added and enable
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype="fluence" \
-    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicecall=false \
     persist.audio.fluence.voicecomm=true \
     persist.audio.product.identify="angler" \
     persist.audio.fluence.speaker=true

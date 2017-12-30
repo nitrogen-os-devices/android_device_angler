@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015 The Android Open-Source Project
+# Copyright 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,28 +14,19 @@
 # limitations under the License.
 #
 
-ifeq ($(TARGET_BUILD_PDK),true)
-ifeq ($(TARGET_BOARD_PLATFORM),msm8994)
+# This contains the module build definitions for the hardware-specific
+# components for this device.
+#
+# As much as possible, those components should be built unconditionally,
+# with device-specific names to avoid collisions, to avoid device-specific
+# bitrot and build breakages. Building a component unconditionally does
+# *not* include it on all devices, so it is safe even with hardware-specific
+# components.
 
-#----------------------------------------------------------------------
-# Fixup libandroid dependency
-#----------------------------------------------------------------------
+ifneq ($(filter angler, $(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
-LOCAL_MODULE := libandroid
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES_arm := ../../../../$(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/system/lib/libandroid.so
-LOCAL_SRC_FILES_arm64 := ../../../../$(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/system/lib64/libandroid.so
-LOCAL_MULTILIB := both
-LOCAL_MODULE_OWNER := qcom
 
-include $(BUILD_PREBUILT)
+include $(call all-makefiles-under,$(LOCAL_PATH))
 
-$(LOCAL_PATH)/../../../../$(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/system/lib/libandroid.so : $(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/pdk_fusion.stamp
-$(LOCAL_PATH)/../../../../$(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/system/lib64/libandroid.so : $(PRODUCT_OUT)/obj/PACKAGING/pdk_fusion_intermediates/pdk_fusion.stamp
-
-endif
 endif
