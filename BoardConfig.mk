@@ -161,6 +161,9 @@ BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
 TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 
+# Compile libhwui in performance mode
+HWUI_COMPILE_FOR_PERF := true
+
 # Use Snapdragon LLVM, if available
 ifneq ($(HOST_OS),darwin) 
     SDCLANG := true 
