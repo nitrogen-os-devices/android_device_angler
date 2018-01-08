@@ -536,6 +536,10 @@
         <int name="smsToMmsTextThreshold" value="10" />
     </carrier_config>
 
+    <carrier_config mcc="260" mnc="06">
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+    </carrier_config>
+
     <carrier_config mcc="262" mnc="01">
         <int name="smsToMmsTextThreshold" value="4" />
     </carrier_config>
