@@ -194,7 +194,7 @@ PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-impl 
 
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
@@ -250,6 +250,13 @@ PRODUCT_PACKAGES += \
     libgps.utils \
     gps.msm8994
 
+# RCS
+PRODUCT_PACKAGES += \
+    rcs_service_aidl \
+    rcs_service_aidl.xml \
+    rcs_service_api \
+    rcs_service_api.xml	
+	
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl
 
@@ -315,7 +322,7 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     nfc_nci.angler \
-    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.0-impl 
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -342,6 +349,7 @@ PRODUCT_PACKAGES += \
 #USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
+	
 # Library used for VTS tests  (only for userdebug and eng builds)
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 # For VTS profiling.
@@ -349,6 +357,7 @@ PRODUCT_PACKAGES += \
      libvts_profiling \
      libvts_multidevice_proto
 endif
+
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
@@ -379,7 +388,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
-
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.force_eri_from_xml=true
@@ -429,6 +437,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Setup custom emergency number list based on the MCC. This is needed by RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.custom_ecc=1
+	
+# Telephony packages
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext	
 
 # Enable Wifi calling
 PRODUCT_PROPERTY_OVERRIDES += \
