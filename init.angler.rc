@@ -90,6 +90,7 @@ on boot
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
 
     # setup permissions for fb1 related nodes
+    mkdir /persist/display 0770 system graphics
     chown system graphics /sys/class/graphics/fb1/hpd
     chown system graphics /sys/class/graphics/fb1/vendor_name
     chown system graphics /sys/class/graphics/fb1/product_description
@@ -183,8 +184,8 @@ on post-fs-data
     #Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
 
-    #Create folder for display calibration data
-    mkdir /data/misc/display 0770 system graphics
+    # Create directory used by display clients
+    mkdir /data/vendor/display 0770 system graphics
 
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
