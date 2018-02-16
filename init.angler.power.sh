@@ -46,6 +46,16 @@ write /sys/module/msm_performance/parameters/cpu_max_freq "4:960000 5:960000 6:9
 # configure governor settings for little cluster
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
 restorecon -R /sys/devices/system/cpu # must restore after interactive
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 18000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 99
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 1
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "65 460000:75 960000:80"
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 80000
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1555200
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 93
@@ -82,6 +92,16 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 0
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 0
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration 0
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 18000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1248000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "70 960000:80 1248000:85"
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 80000
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 633600
+
 
 # restore A57's max
 copy /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
