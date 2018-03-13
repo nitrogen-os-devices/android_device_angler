@@ -249,13 +249,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libgps.utils \
     gps.msm8994
-
-# RCS
-PRODUCT_PACKAGES += \
-    rcs_service_aidl \
-    rcs_service_aidl.xml \
-    rcs_service_api \
-    rcs_service_api.xml	
 	
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl
@@ -437,14 +430,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Setup custom emergency number list based on the MCC. This is needed by RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.custom_ecc=1
-	
-# Telephony packages
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext	
 
 # Enable Wifi calling
 PRODUCT_PROPERTY_OVERRIDES += \
